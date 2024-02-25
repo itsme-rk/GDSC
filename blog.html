@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<style>
+
+    #map {
+      height: 500px;
+    }
+
+    .popup {
+      width: 200px; 
+    }
+
+  </style>
+<body>
+    <div class="strip">
+        <a href="action.html"><button class="back">Back</button></a>
+    </div>
+    <div class="home-section">
+        <video autoplay loop>
+            <source src="v3.mp4" type="video/mp4">
+            <source src="v3.mp4" type="video/ogg">
+          </video>
+        <div class="overlay">
+            <h2>PROTECT<br>OUR<span style="color: orangered"> WILDLIFE</span></h2>
+        </div>
+    </div>
+        
+
+    <section class="section1">
+        <div>
+            <p class="one">40K</p>
+            <p class="two">Endangered</p>
+            <p class="two">Species</p>
+        </div>
+        <div>
+            <p class="one">37.5B<span class="span">/year</span></p>
+            <p class="two">Carbon</p>
+            <p class="two">Footprint</p>
+        </div>
+        <div>
+            <p class="one">12%<span class="span">/year</span></p>
+            <p class="two">Ozone Layer</p>
+            <p class="two">Depletion</p>
+        </div>
+        <div>
+            <p class="one">1</p>
+            <p class="two">Earth for us</p>
+            <p class="two">to protect</p>
+        </div>
+    </section>
+    <section class="section2">
+       
+        
+    </section>
+  
+    <p class="latnew">LATEST NEWS<span>.</span></p>
+    <section class="section2">
+       
+        
+            <div>
+                <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiFtIHbr7qEAxU_JnsHHZ7wB_QYABAEGgJ0bQ&ase=2&gclid=CjwKCAiAuNGuBhAkEiwAGId4anqIuTroPeStiKe-pgJ9I7ApakFa2VW-lf1zylQEH_lPO7TxAaHbBxoClvEQAvD_BwE&ohost=www.google.com&cid=CAESV-D2U7JGBL0T79y61Q_jpS80EkmklyZAmXLpM8TyPW4snJ9tbhbvpf187IYPfpscFYlWlD4KNLmdfwaFOWXJ-bHvrJHfDOuAKo-w7lvDHAbwnfEWupxvgQ&sig=AOD64_38CgjtAheXmDIb2F20rltGxWamAw&q&nis=4&adurl&ved=2ahUKEwiQ1fjar7qEAxXjr1YBHdaGCYAQ0Qx6BAgFEAE" target="_blank"><pre>Keeping Wildlife Safe  
+ When You Visit</pre></a>
+ <img src="wl1.jpeg.jpg" alt="">
+            </div>
+
+            <div>
+                <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiFtIHbr7qEAxU_JnsHHZ7wB_QYABADGgJ0bQ&ase=2&gclid=CjwKCAiAuNGuBhAkEiwAGId4aqJEPKimz7L0xj3NuyKg4cP2niCcPI-cQd52v-hO63r7uiSXet5ZNxoCl_IQAvD_BwE&ohost=www.google.com&cid=CAESV-D2U7JGBL0T79y61Q_jpS80EkmklyZAmXLpM8TyPW4snJ9tbhbvpf187IYPfpscFYlWlD4KNLmdfwaFOWXJ-bHvrJHfDOuAKo-w7lvDHAbwnfEWupxvgQ&sig=AOD64_154_U_cXQN2EatzpEHu-4AF8M-Sw&q&nis=4&adurl&ved=2ahUKEwiQ1fjar7qEAxXjr1YBHdaGCYAQ0Qx6BAgGEAE"><p>Wildlife Refuge</p></a>
+                <img src="wl2.jpeg.jpg" alt="">
+            </div>
+            <div>
+                <a href="https://wildlifesos.org/chronological-news/mythbuster-superstitions-surrounding-wild-animals/"><p>Wild Animal Protection</p></a>
+            <img src="wl3.jpeg.jpg" alt="">
+            </div>
+
+        
+    </section>
+    <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <script>
+
+    // GeoJSON
+const countriesGeoJSON = {
+
+"type": "FeatureCollection",
+"features": [
+
+  // Canada
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "CA" },
+    "geometry": {
+      "type": "Polygon",  
+      "coordinates": [
+        // polygon coordinates
+      ]
+    }
+  },
+  
+  // Brazil
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "BR" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+         // polygon coordinates 
+      ]
+    }
+  },  
+
+  // Mexico
+  {
+    "type": "Feature", 
+    "properties": { "iso_a2": "MX" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates
+      ]
+    }
+  },
+  
+  // South Africa
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "ZA" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates  
+      ]
+    }
+  },
+
+  // China
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "CN" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates  
+      ]
+    }
+  },
+
+  // Australia
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "AU" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+         // polygon coordinates
+      ]
+    }
+  },
+
+  // Japan
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "JP" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates  
+      ]
+    }
+  },
+
+  // India
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "IN" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates
+      ]
+    }  
+  },
+
+  // United Kingdom
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "GB" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates
+      ]
+    }
+  },
+
+  // Russia
+  {
+    "type": "Feature",
+    "properties": { "iso_a2": "RU" },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        // polygon coordinates  
+      ]
+    }
+  }
+
+]
+
+};
+
+// Country data
+const countryData = {
+
+// Canada
+CA: {
+  animals: [
+    {name: 'Beluga Whale', population: 10000},
+    {name: 'Grizzly Bear', population: 25000}
+  ]
+},
+
+// Brazil
+BR: {
+  animals: [
+    {name: 'Blue-throated Macaw', population: 500},
+    {name: 'Giant Otter', population: 5000}
+  ]
+},
+
+// Mexico
+MX: {
+  animals: [
+    {name: 'Mexican Wolf', population: 40},
+    {name: 'Vaquita', population: 10}
+  ]
+},
+
+// South Africa
+ZA: {
+  animals: [
+    {name: 'Black Rhino', population: 5500},
+    {name: 'African Wild Dog', population: 3900}
+  ]
+},
+
+// China
+CN: {
+  animals: [
+    {name: 'South China Tiger', population: 20}, 
+    {name: 'Giant Panda', population: 1864}
+  ]
+},
+
+// Australia
+AU: {
+  animals: [
+    {name: 'Koala', population: 43000},
+    {name: 'Tasmanian Devil', population: 25000}  
+  ]
+},
+
+// Japan
+JP: {
+  animals: [
+    {name: 'Iriomote Cat', population: 100},
+    {name: 'Japanese Hare', population: 1000}
+  ]
+},
+
+// India
+IN: {
+  animals: [
+    {name: 'Asiatic Lion', population: 523},
+    {name: 'Bengal Tiger', population: 2226}
+  ]
+},
+
+// United Kingdom
+GB: {
+  animals: [
+    {name: 'Scottish Wildcat', population: 35},
+    {name: 'Red Squirrel', population: 140000} 
+  ]
+},
+
+// Russia
+RU: {
+  animals: [
+    {name: 'Polar Bear', population: 22000},
+    {name: 'Saiga', population: 80000}
+  ]
+}  
+
+};
+
+  </script>
+</body>
+</html
